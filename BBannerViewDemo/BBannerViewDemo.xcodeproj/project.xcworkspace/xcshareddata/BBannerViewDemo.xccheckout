@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>97CE431A-11A7-40DE-B99F-C5D8561EDD91</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BBannerViewDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>71CCAE280E74D90FC3B988A0B62E724C873903CA</key>
+		<string>https://github.com/chinabrant/BBannerView.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BBannerViewDemo/BBannerViewDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>71CCAE280E74D90FC3B988A0B62E724C873903CA</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/chinabrant/BBannerView.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>71CCAE280E74D90FC3B988A0B62E724C873903CA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>71CCAE280E74D90FC3B988A0B62E724C873903CA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BBannerView</string>
+		</dict>
+	</array>
+</dict>
+</plist>
