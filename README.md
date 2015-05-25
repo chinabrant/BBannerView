@@ -4,7 +4,7 @@ A cycle banner view by swift
 # HOW TO USE
 
 ```swift
-bbannerView = BBannerView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 250))
+	bbannerView = BBannerView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 250))
         bbannerView.dataSource = self
         bbannerView.delegate = self
         view.addSubview(bbannerView)
