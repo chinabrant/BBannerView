@@ -1,7 +1,13 @@
 # BBannerView
-A cycle banner view by swift
+A cycle banner view by swift, 160 lines code, easy to modify.
+
+# Requirements
+
+iOS7 or higher
 
 # HOW TO USE
+
+You only need drag the BBannerView.swift to your project.
 
 ```swift
 	bbannerView = BBannerView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 250))
@@ -39,4 +45,4 @@ If you use CocoaPods, you can install the latest release version of BBannerView 
 pod 'BBannerView'
 ```
 # LICENSE
-BBannerView is licensed under the MIT License.
+BBannerView is licensed under the `MIT` License.
