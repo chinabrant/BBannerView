@@ -147,7 +147,7 @@ class BBannerView: UIView, UIScrollViewDelegate {
                 var page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) + 1
                 if page == dataSource.numberOfItems() + 2 {
                     scrollView.scrollRectToVisible(CGRectMake(scrollView.frame.size.width, 0, scrollView.frame.size.width, scrollView.frame.size.height), animated: false)
-                } else if page == 0 {
+                } else if page == 1 {
                     scrollView.scrollRectToVisible(CGRectMake(scrollView.frame.size.width * CGFloat(dataSource.numberOfItems()), 0, scrollView.frame.size.width, scrollView.frame.size.height), animated: false)
                 }
             }
