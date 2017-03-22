@@ -4,19 +4,20 @@ A cycle banner view by swift, 160 lines code, easy to modify.
 # Requirements
 
 iOS7 or higher
+support swift 3 : 1.1.0
 
 # HOW TO USE
 
 You only need drag the BBannerView.swift to your project.
 
 ```swift
-	bbannerView = BBannerView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 250))
-        bbannerView.dataSource = self
-        bbannerView.delegate = self
-        view.addSubview(bbannerView)
-        bbannerView.reloadData()
-        bbannerView.startAutoScroll(2)
-    }
+	bbannerView = BBannerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250))
+    bbannerView.dataSource = self
+    bbannerView.delegate = self
+    view.addSubview(bbannerView)
+    bbannerView.reloadData()
+    bbannerView.startAutoScroll(timeIntrval: 2)
+   
     
     // MARK: - BBanerViewDataSource
     
@@ -25,7 +26,7 @@ You only need drag the BBannerView.swift to your project.
     }
     
     func viewForItem(bannerView: BBannerView, index: Int) -> UIView {
-        var imageView = UIImageView(frame: bannerView.bounds)
+        let imageView = UIImageView(frame: bannerView.bounds)
         imageView.image = UIImage(named: images[index])
         
         return imageView
@@ -34,7 +35,7 @@ You only need drag the BBannerView.swift to your project.
     // MARK: - BBannerViewDelegate
     
     func didSelectItem(index: Int) {
-        println("index: \(index)")
+        print("index: \(index)")
     }
 ```
 

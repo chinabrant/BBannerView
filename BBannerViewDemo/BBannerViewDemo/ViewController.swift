@@ -18,14 +18,14 @@ class ViewController: UIViewController, BBannerViewDelegate, BBannerViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.grayColor()
+        self.view.backgroundColor = UIColor.gray
         
-        bbannerView = BBannerView(frame: CGRectMake(0, 0, UIScreen.mainScreen().bounds.width, 250))
+        bbannerView = BBannerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250))
         bbannerView.dataSource = self
         bbannerView.delegate = self
         view.addSubview(bbannerView)
         bbannerView.reloadData()
-        bbannerView.startAutoScroll(2)
+        bbannerView.startAutoScroll(timeIntrval: 2)
     }
     
     // MARK: - BBanerViewDataSource
@@ -35,7 +35,7 @@ class ViewController: UIViewController, BBannerViewDelegate, BBannerViewDataSour
     }
     
     func viewForItem(bannerView: BBannerView, index: Int) -> UIView {
-        var imageView = UIImageView(frame: bannerView.bounds)
+        let imageView = UIImageView(frame: bannerView.bounds)
         imageView.image = UIImage(named: images[index])
         
         return imageView
@@ -44,7 +44,7 @@ class ViewController: UIViewController, BBannerViewDelegate, BBannerViewDataSour
     // MARK: - BBannerViewDelegate
     
     func didSelectItem(index: Int) {
-        println("index: \(index)")
+        print("index: \(index)")
     }
 
     override func didReceiveMemoryWarning() {

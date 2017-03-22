@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BBannerView"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "A cycle banner view by swift"
   s.description      = <<-DESC
                        A cycle scrollView by swift, used in iOS
