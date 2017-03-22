@@ -75,7 +75,7 @@ public class BBannerView: UIView, UIScrollViewDelegate {
                 item.frame.origin.x = scrollView.frame.size.width * CGFloat(i)
             }
             
-            let tap = UITapGestureRecognizer(target: self, action: Selector("tapItem:"))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(tapItem(tap:)))
             item.isUserInteractionEnabled = true
             item.addGestureRecognizer(tap)
             
@@ -153,9 +153,9 @@ public class BBannerView: UIView, UIScrollViewDelegate {
                 }
             }
             
-            let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) - 1
+            var page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) - 1
             if page == -1 {
-                page == dataSource.numberOfItems() - 1
+                page = dataSource.numberOfItems() - 1
             }
             
             pageControl?.currentPage = page

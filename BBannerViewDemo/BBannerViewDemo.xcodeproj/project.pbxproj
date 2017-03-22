@@ -13,7 +13,7 @@
 		091B23331B12C1E90093E338 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 091B23321B12C1E90093E338 /* Images.xcassets */; };
 		091B23361B12C1E90093E338 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091B23341B12C1E90093E338 /* LaunchScreen.xib */; };
 		091B23421B12C1E90093E338 /* BBannerViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B23411B12C1E90093E338 /* BBannerViewDemoTests.swift */; };
-		091B234D1B12C27B0093E338 /* BBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B234C1B12C27B0093E338 /* BBannerView.swift */; };
+		9406187A1E822DA500373FBC /* BBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940618791E822DA500373FBC /* BBannerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +37,7 @@
 		091B233B1B12C1E90093E338 /* BBannerViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBannerViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		091B23401B12C1E90093E338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		091B23411B12C1E90093E338 /* BBannerViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBannerViewDemoTests.swift; sourceTree = "<group>"; };
-		091B234C1B12C27B0093E338 /* BBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBannerView.swift; sourceTree = "<group>"; };
+		940618791E822DA500373FBC /* BBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBannerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 		091B231D1B12C1E90093E338 = {
 			isa = PBXGroup;
 			children = (
-				091B234B1B12C27B0093E338 /* BBannerView */,
+				940618781E822DA500373FBC /* BBannerView */,
 				091B23281B12C1E90093E338 /* BBannerViewDemo */,
 				091B233E1B12C1E90093E338 /* BBannerViewDemoTests */,
 				091B23271B12C1E90093E338 /* Products */,
@@ -115,12 +115,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		091B234B1B12C27B0093E338 /* BBannerView */ = {
+		940618781E822DA500373FBC /* BBannerView */ = {
 			isa = PBXGroup;
 			children = (
-				091B234C1B12C27B0093E338 /* BBannerView.swift */,
+				940618791E822DA500373FBC /* BBannerView.swift */,
 			);
-			path = BBannerView;
+			name = BBannerView;
+			path = ../BBannerView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,7 +228,7 @@
 			files = (
 				091B232E1B12C1E90093E338 /* ViewController.swift in Sources */,
 				091B232C1B12C1E90093E338 /* AppDelegate.swift in Sources */,
-				091B234D1B12C27B0093E338 /* BBannerView.swift in Sources */,
+				9406187A1E822DA500373FBC /* BBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
