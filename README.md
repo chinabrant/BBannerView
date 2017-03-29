@@ -10,10 +10,12 @@ A cycle banner view by swift, easy to modify.
 
 # How to use?
 
+代理和闭包同时设置时，data source会优先使用代理。事件两个都会响应.
+
 ### 代理的形式
 
 ```swift
-bbannerView = BBannerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250))
+    bbannerView = BBannerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250))
     bbannerView.dataSource = self
     bbannerView.delegate = self
     view.addSubview(bbannerView)
