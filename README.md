@@ -15,7 +15,10 @@ A cycle banner view by swift, easy to modify.
 ### 代理的形式
 
 ```swift
-    bbannerView = BBannerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250))
+    bbannerView = BBannerView(frame: CGRect(x: 0, 
+                                            y: 0, 
+                                        width: UIScreen.main.bounds.size.width, 
+                                        height: 250))
     bbannerView.dataSource = self
     bbannerView.delegate = self
     view.addSubview(bbannerView)
