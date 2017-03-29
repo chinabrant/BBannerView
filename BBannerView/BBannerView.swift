@@ -29,8 +29,8 @@ public class BBannerView: UIView, UIScrollViewDelegate {
         return scrollView
     }()
     
-    var dataSource: BBannerViewDataSource?
-    var delegate: BBannerViewDelegate?
+    public var dataSource: BBannerViewDataSource?
+    public var delegate: BBannerViewDelegate?
     private var timer: Timer?
     
     private lazy var pageControl: UIPageControl = {
@@ -41,9 +41,9 @@ public class BBannerView: UIView, UIScrollViewDelegate {
     }()
     
     // block dataSource and delegate
-    var tap: ((_ bannerView: BBannerView, _ index: Int) -> ())?
-    var numberOfItems: ((_ bannerView: BBannerView) -> (Int))?
-    var viewForItem: ((_ bannerView: BBannerView, _ index: Int) -> (UIView))?
+    public var tap: ((_ bannerView: BBannerView, _ index: Int) -> ())?
+    public var numberOfItems: ((_ bannerView: BBannerView) -> (Int))?
+    public var viewForItem: ((_ bannerView: BBannerView, _ index: Int) -> (UIView))?
     
     // you should init with this method
     override init(frame: CGRect) {

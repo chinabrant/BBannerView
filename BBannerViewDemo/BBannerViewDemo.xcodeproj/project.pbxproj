@@ -15,6 +15,7 @@
 		091B23421B12C1E90093E338 /* BBannerViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B23411B12C1E90093E338 /* BBannerViewDemoTests.swift */; };
 		9406187A1E822DA500373FBC /* BBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940618791E822DA500373FBC /* BBannerView.swift */; };
 		94E7CF0D1E8B5C3100E8C9AA /* BBannerView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 94E7CF0C1E8B5C3100E8C9AA /* BBannerView.podspec */; };
+		94E7CF0F1E8B5E8E00E8C9AA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 94E7CF0E1E8B5E8E00E8C9AA /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		091B23411B12C1E90093E338 /* BBannerViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBannerViewDemoTests.swift; sourceTree = "<group>"; };
 		940618791E822DA500373FBC /* BBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBannerView.swift; sourceTree = "<group>"; };
 		94E7CF0C1E8B5C3100E8C9AA /* BBannerView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BBannerView.podspec; path = ../BBannerView.podspec; sourceTree = "<group>"; };
+		94E7CF0E1E8B5E8E00E8C9AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		091B231D1B12C1E90093E338 = {
 			isa = PBXGroup;
 			children = (
+				94E7CF0E1E8B5E8E00E8C9AA /* README.md */,
 				94E7CF0C1E8B5C3100E8C9AA /* BBannerView.podspec */,
 				940618781E822DA500373FBC /* BBannerView */,
 				091B23281B12C1E90093E338 /* BBannerViewDemo */,
@@ -232,6 +235,7 @@
 			files = (
 				091B232E1B12C1E90093E338 /* ViewController.swift in Sources */,
 				091B232C1B12C1E90093E338 /* AppDelegate.swift in Sources */,
+				94E7CF0F1E8B5E8E00E8C9AA /* README.md in Sources */,
 				9406187A1E822DA500373FBC /* BBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
