@@ -19,13 +19,31 @@ import UIKit
 
 public class BBannerView: UIView, UIScrollViewDelegate {
     
-    private var scrollView: UIScrollView!
+    private lazy var scrollView: UIScrollView = {
+        
+        let scrollView = UIScrollView(frame: self.bounds)
+        scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.delegate = self
+        return scrollView
+    }()
     
-    var dataSource: BBannerViewDataSource!
+    var dataSource: BBannerViewDataSource?
     var delegate: BBannerViewDelegate?
     private var timer: Timer?
     
-    var pageControl: UIPageControl?
+    private lazy var pageControl: UIPageControl = {
+        let pc = UIPageControl(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: 20))
+        pc.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height - 20)
+        self.addSubview(pc)
+        return pc
+    }()
+    
+    // block dataSource and delegate
+    var tap: ((_ bannerView: BBannerView, _ index: Int) -> ())?
+    var numberOfItems: ((_ bannerView: BBannerView) -> (Int))?
+    var viewForItem: ((_ bannerView: BBannerView, _ index: Int) -> (UIView))?
     
     // you should init with this method
     override init(frame: CGRect) {
@@ -36,37 +54,59 @@ public class BBannerView: UIView, UIScrollViewDelegate {
     required public init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    deinit {
+        self.timer?.invalidate()
+        self.timer = nil
+    }
 
     func setupViews() {
-        self.scrollView = UIScrollView(frame: self.bounds)
-        self.scrollView.isPagingEnabled = true
-        self.scrollView.showsHorizontalScrollIndicator = false
-        self.scrollView.showsVerticalScrollIndicator = false
-        self.scrollView.delegate = self
         self.addSubview(self.scrollView)
     }
     
+    func view(index: Int) -> UIView {
+        if let dataSource = self.dataSource {
+            return dataSource.viewForItem(bannerView: self, index: index)
+        }
+        else {
+            assert((self.viewForItem != nil), "delegate 和 闭包形式的数据源都为空, 请确保使用其中一种形式")
+            return self.viewForItem!(self, index)
+        }
+    }
+    
+    func itemCount() -> Int {
+        if let dataSource = self.dataSource {
+            return dataSource.numberOfItems()
+        }
+        else {
+            assert(self.numberOfItems != nil, "delegate 和 闭包形式的数据源都为空, 请确保使用其中一种形式")
+            return self.numberOfItems!(self)
+        }
+    }
+    
+    // recreate the banner views
     func reloadData() {
-        let itemCount = dataSource.numberOfItems()
+        let itemCount = self.itemCount()
         
+        // clear previous views
         let subviews = self.scrollView.subviews
         for view in subviews {
            view.removeFromSuperview()
         }
         
-        scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(dataSource.numberOfItems()), height: scrollView.frame.size.height)
-        if dataSource.numberOfItems() > 1 {
-            scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(dataSource.numberOfItems() + 2), height: scrollView.frame.size.height)
+        scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(itemCount), height: scrollView.frame.size.height)
+        if itemCount > 1 {
+            scrollView.contentSize = CGSize(width: scrollView.frame.size.width * CGFloat(itemCount + 2), height: scrollView.frame.size.height)
         }
         
-        if dataSource.numberOfItems() > 1 {
-            let itemBefore = dataSource.viewForItem(bannerView: self, index: dataSource.numberOfItems() - 1)
+        if itemCount > 1 {
+            let itemBefore = self.view(index: itemCount - 1) // dataSource.viewForItem(bannerView: self, index: itemCount - 1)
             itemBefore.frame.origin.x = 0
             scrollView.addSubview(itemBefore)
         }
         
         for i in 0 ..< itemCount {
-            let item = dataSource.viewForItem(bannerView: self, index: i)
+            let item = self.view(index: i)
             item.tag = i + 500
             
             if itemCount > 1 {
@@ -82,36 +122,43 @@ public class BBannerView: UIView, UIScrollViewDelegate {
             scrollView.addSubview(item)
         }
         
-        if dataSource.numberOfItems() > 1 {
-            let item = dataSource.viewForItem(bannerView: self, index: 0)
-            item.frame.origin.x = scrollView.frame.size.width * CGFloat(dataSource.numberOfItems() + 1)
+        if itemCount > 1 {
+            let item = self.view(index: 0) // dataSource.viewForItem(bannerView: self, index: 0)
+            item.frame.origin.x = scrollView.frame.size.width * CGFloat(itemCount + 1)
             scrollView.addSubview(item)
         }
         
-        if dataSource.numberOfItems() > 1 {
+        if itemCount > 1 {
             scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: false)
         }
         
         // init page control
         if itemCount > 1 {
-            if pageControl == nil {
-                pageControl = UIPageControl(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: 20))
-                pageControl?.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height - 20)
-                addSubview(pageControl!)
-            }
-            
-            pageControl?.isHidden = false
-            pageControl?.numberOfPages = itemCount
-            pageControl?.currentPage = 0
+
+            self.pageControl.isHidden = false
+            self.pageControl.numberOfPages = itemCount
+            self.pageControl.currentPage = 0
         } else {
-            pageControl?.isHidden = true
+            self.pageControl.isHidden = true
+        }
+        
+        // update timer
+        if itemCount <= 1 {
+            timer?.fireDate = (NSDate.distantFuture as NSDate) as Date
         }
     }
     
     func tapItem(tap: UITapGestureRecognizer) {
         let index = tap.view!.tag - 500
+        
+        // delegate call back
         if self.delegate != nil {
             self.delegate?.didSelectItem!(index: index)
+        }
+        
+        // block call back
+        if let tap = self.tap {
+            tap(self, index)
         }
     }
     
@@ -120,8 +167,9 @@ public class BBannerView: UIView, UIScrollViewDelegate {
             timer = Timer(timeInterval: Double(timeIntrval), target: self, selector: #selector(BBannerView.next as (BBannerView) -> () -> ()), userInfo: nil, repeats: true)
         }
         
-        RunLoop.current.add(timer!, forMode: RunLoopMode.commonModes)
-        if self.dataSource.numberOfItems() > 1 {
+        // notice run loop mode
+        RunLoop.current.add(timer!, forMode: RunLoopMode.defaultRunLoopMode)
+        if self.itemCount() > 1 {
             timer?.fireDate = NSDate() as Date
         } else {
             timer?.fireDate = (NSDate.distantFuture as NSDate) as Date
@@ -136,44 +184,35 @@ public class BBannerView: UIView, UIScrollViewDelegate {
     
     // scroll to next page
     func next() {
+        
+        
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) + 1
         scrollView.scrollRectToVisible(CGRect(x: CGFloat(page) * scrollView.frame.size.width, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: true)
     }
     
     // when scroll to first or last page, update scrollView's contentoffset
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if dataSource.numberOfItems() > 1 {
+        if self.itemCount() > 1 {
             
-            if scrollView.contentOffset.x.truncatingRemainder(dividingBy: scrollView.frame.size.width) == 0 {
-                let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) + 1
-                if page == dataSource.numberOfItems() + 2 {
-                    scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: false)
-                } else if page == 1 {
-                    scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width * CGFloat(dataSource.numberOfItems()), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: false)
-                }
+            let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) + 1
+            if page == self.itemCount() + 2 {
+                
+                // 滑到最后一页了，要手动移到第二页
+                scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: false)
+            }
+            else if page == 1 {
+                
+                scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width * CGFloat(self.itemCount()), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: false)
             }
             
-            var page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) - 1
-            if page == -1 {
-                page = dataSource.numberOfItems() - 1
+            
+            var indicatorPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width) - 1
+            if indicatorPage == -1 {
+                indicatorPage = self.itemCount() - 1
             }
             
-            pageControl?.currentPage = page
+            self.pageControl.currentPage = indicatorPage
         }
     }
-    
-    // MARK: - UIScrollViewDelegate
-    
-//    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-//        
-//        if dataSource.numberOfItems() > 1 {
-//            var page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) + 1
-//            if page == dataSource.numberOfItems() + 2 {
-//                scrollView.scrollRectToVisible(CGRectMake(scrollView.frame.size.width, 0, scrollView.frame.size.width, scrollView.frame.size.height), animated: false)
-//            } else if page == 0 {
-//                scrollView.scrollRectToVisible(CGRectMake(scrollView.frame.size.width * CGFloat(dataSource.numberOfItems()), 0, scrollView.frame.size.width, scrollView.frame.size.height), animated: false)
-//            }
-//        }
-//    }
 
 }

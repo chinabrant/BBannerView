@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BBannerView"
-  s.version          = "1.1.0"
+  s.version          = "1.2.0"
   s.summary          = "A cycle banner view by swift"
   s.description      = <<-DESC
                        A cycle scrollView by swift, used in iOS
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage         = "https://github.com/chinabrant/BBannerView"
   # s.screenshots      = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
-  s.author           = { "chinabrant" => "sjwu2012@gmail.com" }
+  s.author           = { "chinabrant" => "sjwu1234@gmail.com" }
   s.source           = { :git => "https://github.com/chinabrant/BBannerView.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/NAME'
 
