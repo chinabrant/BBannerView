@@ -13,7 +13,7 @@ A cycle banner view by swift, easy to modify.
 ### 代理的形式
 
 ```swift
-	bbannerView = BBannerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250))
+bbannerView = BBannerView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 250))
     bbannerView.dataSource = self
     bbannerView.delegate = self
     view.addSubview(bbannerView)
@@ -48,7 +48,7 @@ A cycle banner view by swift, easy to modify.
 
 ### 闭包的形式
 
-```
+```swift
     self.banner2.numberOfItems = { (bannerView: BBannerView) -> Int in
 
         return self.images.count
@@ -63,12 +63,12 @@ A cycle banner view by swift, easy to modify.
     }
 
     self.banner2.tap = { (bannerView: BBannerView, index: Int) in
-    print("banner2 tap: %d", index)
-}
+        print("banner2 tap: %d", index)
+    }
 
 
-banner2.reloadData()
-banner2.startAutoScroll(timeIntrval: 2)
+    banner2.reloadData()
+    banner2.startAutoScroll(timeIntrval: 2)
 ```
 
 # 集成
