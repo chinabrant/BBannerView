@@ -3,6 +3,10 @@ A cycle banner view by swift, easy to modify.
 
 一个swift写的广告轮播组件，支持代理和闭包的形式设置数据源和事件代理。代码少容易修改，可以很方便定制。
 
+# Screenshot
+
+![](./Screenshots/BBannerView.gif)
+
 # Requirements
 
 * iOS8 or higher

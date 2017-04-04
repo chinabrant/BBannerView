@@ -1,0 +1,7 @@
+version: "Apple Swift version 3.0.2 (swiftlang-800.0.63 clang-800.0.42.1)"
+options: "743b17f9d4a920a82edb65f7ba02f3f6"
+build_time: [544592288, 25974000]
+inputs:
+  "/Users/sjwu/github/BBannerView/BBannerViewDemo/BBannerViewDemo/ViewController.swift": [544592267, 0]
+  "/Users/sjwu/github/BBannerView/BBannerViewDemo/BBannerViewDemo/AppDelegate.swift": [544592267, 0]
+  "/Users/sjwu/github/BBannerView/BBannerView/BBannerView.swift": [544592267, 0]
