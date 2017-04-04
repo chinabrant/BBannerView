@@ -87,7 +87,7 @@ A cycle banner view by swift, easy to modify.
 
 > pod 'BBannerView'
 
-* 直接拖`BBannerView.swift`到你的项目
+* Drag `BBannerView.swift` to your project.
 
 # LICENSE
 BBannerView is licensed under the `MIT` License.
