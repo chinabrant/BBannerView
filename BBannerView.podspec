@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "BBannerView"
-  s.version          = "1.2.0"
+  s.version          = "1.2.1"
   s.summary          = "A cycle banner view by swift"
   s.description      = <<-DESC
                        A cycle scrollView by swift, used in iOS
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.7'
   s.requires_arc = true
 
-  s.source_files = 'BBannerView/*'
+  s.source_files = 'BBannerView/Classes/**/*'
   # s.resources = 'Assets'
 
   # s.ios.exclude_files = 'Classes/osx'

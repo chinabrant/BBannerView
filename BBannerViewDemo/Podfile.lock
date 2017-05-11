@@ -1,0 +1,16 @@
+PODS:
+  - BBannerView (1.2.1)
+
+DEPENDENCIES:
+  - BBannerView (from `../`)
+
+EXTERNAL SOURCES:
+  BBannerView:
+    :path: ../
+
+SPEC CHECKSUMS:
+  BBannerView: 436a9be4dca3b9b843eaa01be601656c79b19698
+
+PODFILE CHECKSUM: 9b2837e6974790318ff18e1591f581b9d2d43782
+
+COCOAPODS: 1.2.0

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BBannerView
 
 class ViewController: UIViewController, BBannerViewDelegate, BBannerViewDataSource {
 

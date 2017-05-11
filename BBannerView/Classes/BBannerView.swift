@@ -46,7 +46,7 @@ public class BBannerView: UIView, UIScrollViewDelegate {
     public var viewForItem: ((_ bannerView: BBannerView, _ index: Int) -> (UIView))?
     
     // you should init with this method
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         self.setupViews()
     }
@@ -85,7 +85,7 @@ public class BBannerView: UIView, UIScrollViewDelegate {
     }
     
     // recreate the banner views
-    func reloadData() {
+    public func reloadData() {
         let itemCount = self.itemCount()
         
         // clear previous views
@@ -162,7 +162,7 @@ public class BBannerView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func startAutoScroll(timeIntrval: Int) {
+    public func startAutoScroll(timeIntrval: Int) {
         if timer == nil {
             timer = Timer(timeInterval: Double(timeIntrval), target: self, selector: #selector(BBannerView.next as (BBannerView) -> () -> ()), userInfo: nil, repeats: true)
         }
@@ -176,7 +176,7 @@ public class BBannerView: UIView, UIScrollViewDelegate {
         }
     }
     
-    func stopAutoScroll() {
+    public func stopAutoScroll() {
         if timer != nil {
             timer?.fireDate = (NSDate.distantFuture as NSDate) as Date
         }

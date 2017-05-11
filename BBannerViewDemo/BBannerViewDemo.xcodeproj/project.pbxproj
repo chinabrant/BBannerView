@@ -13,7 +13,7 @@
 		091B23331B12C1E90093E338 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 091B23321B12C1E90093E338 /* Images.xcassets */; };
 		091B23361B12C1E90093E338 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 091B23341B12C1E90093E338 /* LaunchScreen.xib */; };
 		091B23421B12C1E90093E338 /* BBannerViewDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091B23411B12C1E90093E338 /* BBannerViewDemoTests.swift */; };
-		9406187A1E822DA500373FBC /* BBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940618791E822DA500373FBC /* BBannerView.swift */; };
+		0C67EE7F3A62BFA11AC554A5 /* Pods_BBannerViewDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 949DE9979EB9AA1ADB807F3D /* Pods_BBannerViewDemo.framework */; };
 		94E7CF0D1E8B5C3100E8C9AA /* BBannerView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 94E7CF0C1E8B5C3100E8C9AA /* BBannerView.podspec */; };
 		94E7CF0F1E8B5E8E00E8C9AA /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 94E7CF0E1E8B5E8E00E8C9AA /* README.md */; };
 /* End PBXBuildFile section */
@@ -39,9 +39,11 @@
 		091B233B1B12C1E90093E338 /* BBannerViewDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BBannerViewDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		091B23401B12C1E90093E338 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		091B23411B12C1E90093E338 /* BBannerViewDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BBannerViewDemoTests.swift; sourceTree = "<group>"; };
-		940618791E822DA500373FBC /* BBannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBannerView.swift; sourceTree = "<group>"; };
+		949DE9979EB9AA1ADB807F3D /* Pods_BBannerViewDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBannerViewDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		94E7CF0C1E8B5C3100E8C9AA /* BBannerView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BBannerView.podspec; path = ../BBannerView.podspec; sourceTree = "<group>"; };
 		94E7CF0E1E8B5E8E00E8C9AA /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		95F161F2E486C4C6C21DCF1A /* Pods-BBannerViewDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBannerViewDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBannerViewDemo/Pods-BBannerViewDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F82660213F28C4F04FDD5AEA /* Pods-BBannerViewDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBannerViewDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBannerViewDemo/Pods-BBannerViewDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C67EE7F3A62BFA11AC554A5 /* Pods_BBannerViewDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,10 +70,11 @@
 			children = (
 				94E7CF0E1E8B5E8E00E8C9AA /* README.md */,
 				94E7CF0C1E8B5C3100E8C9AA /* BBannerView.podspec */,
-				940618781E822DA500373FBC /* BBannerView */,
 				091B23281B12C1E90093E338 /* BBannerViewDemo */,
 				091B233E1B12C1E90093E338 /* BBannerViewDemoTests */,
 				091B23271B12C1E90093E338 /* Products */,
+				DF40DCE623DFAA40A91EDD4A /* Pods */,
+				F0FFC41CB4F5C0D48B159F80 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,13 +125,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		940618781E822DA500373FBC /* BBannerView */ = {
+		DF40DCE623DFAA40A91EDD4A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				940618791E822DA500373FBC /* BBannerView.swift */,
+				F82660213F28C4F04FDD5AEA /* Pods-BBannerViewDemo.debug.xcconfig */,
+				95F161F2E486C4C6C21DCF1A /* Pods-BBannerViewDemo.release.xcconfig */,
 			);
-			name = BBannerView;
-			path = ../BBannerView;
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F0FFC41CB4F5C0D48B159F80 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				949DE9979EB9AA1ADB807F3D /* Pods_BBannerViewDemo.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +149,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 091B23451B12C1E90093E338 /* Build configuration list for PBXNativeTarget "BBannerViewDemo" */;
 			buildPhases = (
+				CD61492CE5DDD63C426117B0 /* [CP] Check Pods Manifest.lock */,
 				091B23221B12C1E90093E338 /* Sources */,
 				091B23231B12C1E90093E338 /* Frameworks */,
 				091B23241B12C1E90093E338 /* Resources */,
+				6C255D09D3F8C9FBC3E8DA78 /* [CP] Embed Pods Frameworks */,
+				D54BD8C062C99FF25933570F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -228,6 +243,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6C255D09D3F8C9FBC3E8DA78 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BBannerViewDemo/Pods-BBannerViewDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CD61492CE5DDD63C426117B0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D54BD8C062C99FF25933570F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BBannerViewDemo/Pods-BBannerViewDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		091B23221B12C1E90093E338 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -236,7 +299,6 @@
 				091B232E1B12C1E90093E338 /* ViewController.swift in Sources */,
 				091B232C1B12C1E90093E338 /* AppDelegate.swift in Sources */,
 				94E7CF0F1E8B5E8E00E8C9AA /* README.md in Sources */,
-				9406187A1E822DA500373FBC /* BBannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -314,7 +376,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -352,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -361,6 +423,7 @@
 		};
 		091B23461B12C1E90093E338 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F82660213F28C4F04FDD5AEA /* Pods-BBannerViewDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BBannerViewDemo/Info.plist;
@@ -372,6 +435,7 @@
 		};
 		091B23471B12C1E90093E338 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 95F161F2E486C4C6C21DCF1A /* Pods-BBannerViewDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = BBannerViewDemo/Info.plist;

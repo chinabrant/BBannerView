@@ -1,0 +1,6 @@
+framework module BBannerView {
+  umbrella header "BBannerView-umbrella.h"
+
+  export *
+  module * { export * }
+}
