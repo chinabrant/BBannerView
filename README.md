@@ -1,4 +1,4 @@
-![](http://wx4.sinaimg.cn/mw690/acbce940gy1fifuot2ltyj20kj06wglz.jpg)
+![](./Screenshots/logo.png)
 
 # BBannerView
 A cycle banner view by swift, easy to modify.
