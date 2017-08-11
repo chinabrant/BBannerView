@@ -33,6 +33,9 @@ public class BBannerView: UIView, UIScrollViewDelegate {
     public var delegate: BBannerViewDelegate?
     private var timer: Timer?
     
+    private var autoScorllTimeinterval: TimeInterval = 5    // 自动滑动时间间隔
+    private var isAutoScroll: Bool = false  // 当前是否是自动滑动模式
+    
     private lazy var pageControl: UIPageControl = {
         let pc = UIPageControl(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: 20))
         pc.center = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height - 20)
@@ -162,7 +165,11 @@ public class BBannerView: UIView, UIScrollViewDelegate {
         }
     }
     
-    public func startAutoScroll(timeIntrval: Int) {
+    public func startAutoScroll(timeIntrval: TimeInterval) {
+        
+        isAutoScroll = true
+        autoScorllTimeinterval = timeIntrval
+        
         if timer == nil {
             timer = Timer(timeInterval: Double(timeIntrval), target: self, selector: #selector(BBannerView.next as (BBannerView) -> () -> ()), userInfo: nil, repeats: true)
         }
@@ -170,7 +177,8 @@ public class BBannerView: UIView, UIScrollViewDelegate {
         // notice run loop mode
         RunLoop.current.add(timer!, forMode: RunLoopMode.defaultRunLoopMode)
         if self.itemCount() > 1 {
-            timer?.fireDate = NSDate() as Date
+            
+            timer?.fireDate =  Date.init(timeIntervalSinceNow: self.autoScorllTimeinterval)
         } else {
             timer?.fireDate = (NSDate.distantFuture as NSDate) as Date
         }
@@ -184,27 +192,37 @@ public class BBannerView: UIView, UIScrollViewDelegate {
     
     // scroll to next page
     func next() {
-        
-        
+
         let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) + 1
+        
         scrollView.scrollRectToVisible(CGRect(x: CGFloat(page) * scrollView.frame.size.width, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: true)
+        
+    }
+    
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        if isAutoScroll {
+            self.stopAutoScroll()
+        }
+    }
+    
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if isAutoScroll {
+            self.startAutoScroll(timeIntrval: self.autoScorllTimeinterval)
+        }
     }
     
     // when scroll to first or last page, update scrollView's contentoffset
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
         if self.itemCount() > 1 {
             
-            let page = Int(scrollView.contentOffset.x / scrollView.frame.size.width) + 1
-            if page == self.itemCount() + 2 {
-                
-                // 滑到最后一页了，要手动移到第二页
+            if self.scrollView.contentOffset.x >= self.scrollView.contentSize.width - self.scrollView.frame.size.width {
+                // 滑动到最后一页后，要手动滑到第二页
                 scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width, y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: false)
             }
-            else if page == 1 {
-                
+            else if self.scrollView.contentOffset.x <= 0 {
                 scrollView.scrollRectToVisible(CGRect(x: scrollView.frame.size.width * CGFloat(self.itemCount()), y: 0, width: scrollView.frame.size.width, height: scrollView.frame.size.height), animated: false)
             }
-            
             
             var indicatorPage = Int(scrollView.contentOffset.x / scrollView.frame.size.width) - 1
             if indicatorPage == -1 {
