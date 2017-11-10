@@ -12,7 +12,8 @@ A cycle banner view by swift, easy to modify.
 # Requirements
 
 * iOS8 or higher
-* swift 3
+* swift 3 version 1.2.2
+* swift 4 version 4.0.0
 
 # How to use?
 
